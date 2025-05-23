@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 import os
 from retriever import retrieve_similar
 from generate_response import generate_response
-
+print("hi")
 app = Flask(__name__)
 
 # Define your secret token (in production, store this securely)
