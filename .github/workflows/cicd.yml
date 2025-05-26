@@ -24,10 +24,10 @@ jobs:
  
     - name: Build & Run Docker container
       run: |
-        ssh root@82.25.105.7 << 'EOF'
+        ssh -i ~/.ssh/id_rsa root@your.vps.ip.address << 'EOF'
         cd ~/yash-ai-api
         docker stop yash-ai-api || true
         docker rm yash-ai-api || true
         docker build -t yash-ai-api .
-        docker run -d -p 5002:5000 --name yash-ai-api -e GROQ_API_KEY="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" yash-ai-api
+        docker run -d -p 5002:5000 --name yash-ai-api -e GROQ_API_KEY="${{ secrets.GROQ_API_KEY }}" yash-ai-api
         EOF
