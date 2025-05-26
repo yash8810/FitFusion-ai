@@ -24,7 +24,7 @@ jobs:
  
     - name: Build & Run Docker container
       run: |
-        ssh -i ~/.ssh/id_rsa root@your.vps.ip.address << 'EOF'
+        ssh -i ~/.ssh/id_rsa root@82.25.105.7 << 'EOF'
         cd ~/yash-ai-api
         docker stop yash-ai-api || true
         docker rm yash-ai-api || true
