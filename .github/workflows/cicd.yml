@@ -20,12 +20,13 @@ jobs:
  
     - name: Copy files to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "mkdir -p ~/yash-ai-api"
-        scp -r . ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:~/yash-ai-api
+        ssh -o StrictHostKeyChecking=no root@82.25.105.7 "mkdir -p ~/yash-ai-api"
+        scp -r . root@82.25.105.7:~/yash-ai-api
+
  
     - name: Build & Run Docker container
       run: |
-        ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+        ssh -o StrictHostKeyChecking=no root@82.25.105.7 << 'EOF'
         cd ~/yash-ai-api
         docker stop yash-ai-api || true
         docker rm yash-ai-api || true
