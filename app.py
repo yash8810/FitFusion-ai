@@ -9,6 +9,12 @@ app = Flask(__name__)
 # Define your secret token (in production, store this securely)
 VALID_TOKEN = "mysecrettoken123"
 print("Starting Flask app...")
+
+
+@app.route('/', methods=['GET'])
+def hello():
+    return "Hello world"
+
 @app.route('/api/search', methods=['POST'])
 def search():
     try:
