@@ -22,7 +22,7 @@ with open(metadata_path, "r", encoding="utf-8") as f:
     chunk_metadata = json.load(f)
 
 def retrieve_similar(query, top_k=3):
-    """Retrieve top_k most relevant text chunks for the given query."""
+    """Retrieve top_k most relevant text chunks for the given query.okoj"""
     try:
         # Embed the query
         query_vector = embedding_model.encode([query])
